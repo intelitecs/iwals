@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Apr  1 04:10:44 2022
+# Make data base, printed on Sat Apr  2 02:37:15 2022
 
 # Variables
 
@@ -183,7 +181,7 @@ J2REDIR = /home/imhotep/.sdkman/candidates/java/current
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/imhotep/.config/Code/CachedData/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1
+VSCODE_CODE_CACHE_PATH = /home/imhotep/.config/Code/CachedData/e18005f0f1b33c29e81d732535d8c0e47cafb0b5
 # environment
 LOGNAME = imhotep
 # environment
@@ -227,7 +225,7 @@ SBT_HOME = /home/imhotep/.sdkman/candidates/sbt/current
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-3f3a92e3-3687-4cb4-b068-12cddf3f1454.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-a1acdd85-461c-40db-9c95-0d051ce9ca63.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -253,7 +251,7 @@ OLDPWD = /home/imhotep
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-133b4eef-1.65.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-133b4eef-1.66.0-main.sock
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -279,9 +277,11 @@ ORACLE_SID = XE
 # default
 MAKEFILES := 
 # automatic
- 
 <F = $(notdir $<)
 # environment
+ 
+make: *** No rule to make target 'all'.  Stop.
+
 SDKMAN_CANDIDATES_DIR = /home/imhotep/.sdkman/candidates
 # environment
 LC_ALL = C
@@ -318,7 +318,7 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 1364418
+VSCODE_PID = 1499579
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
@@ -355,7 +355,7 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-30 09:02:11.375529269
+#  Last modified 2022-04-02 02:12:59.95784448
 #  File has been updated.
 #  Successfully updated.
 
@@ -405,6 +405,6 @@ main:
 # strcache performance: lookups = 31 / hit rate = 32%
 # hash-table stats:
 # Load=21/8192=0%, Rehash=0, Collisions=1/31=3%
-# Finished Make data base on Fri Apr  1 04:10:44 2022
+# Finished Make data base on Sat Apr  2 02:37:15 2022
 
  
