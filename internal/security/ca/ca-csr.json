@@ -1,0 +1,14 @@
+{
+    "CN": "Iwals CA",
+    "Key": {
+        "algo": "rsa",
+        "size": 2048
+    },
+    "names": [{
+        "C": "Côte d'ivoire",
+        "L": "Abidjan",
+        "ST": "Côte d'ivoire",
+        "O": "Intelitec",
+        "OU": "CA Services"
+    }]
+}
