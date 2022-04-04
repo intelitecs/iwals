@@ -49,6 +49,7 @@ func setupTest(t *testing.T, fn func(*server.Config)) (
 	clientCreds := credentials.NewTLS(clientTLSConfig)
 
 	//clientOpts := []grpc.DialOption{grpc.WithInsecure()}
+	//conn, err := grpc.Dial(listener.Addr().String(), clientOpts...)
 	conn, err := grpc.Dial(listener.Addr().String(),
 		grpc.WithTransportCredentials(clientCreds),
 	)
