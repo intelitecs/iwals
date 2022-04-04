@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Apr  4 00:05:24 2022
+# Make data base, printed on Mon Apr  4 02:52:12 2022
 
 # Variables
 
@@ -231,11 +231,7 @@ SBT_HOME = /home/imhotep/.sdkman/candidates/sbt/current
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-<<<<<<< HEAD
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-f8a9b13a-92ab-42a9-987b-c69f9ffccfe3.sock
-=======
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-dde19b2c-5708-47d1-ba38-a4e7bd9b10c1.sock
->>>>>>> security
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c74ac6ae-8e91-4d78-a45a-f065ee6b73ce.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -280,17 +276,13 @@ GSETTINGS_SCHEMA_DIR_CONDA_BACKUP =
 CARGO_PATH = /home/imhotep/.cargo
 # environment
 QT_ACCESSIBILITY = 1
- 
 # environment
 DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
 # environment
 ORACLE_SID = XE
 # default
 MAKEFILES := 
-<<<<<<< HEAD
-=======
  
->>>>>>> security
 # automatic
 <F = $(notdir $<)
 # environment
@@ -330,11 +322,7 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-<<<<<<< HEAD
-VSCODE_PID = 2391349
-=======
-VSCODE_PID = 2393231
->>>>>>> security
+VSCODE_PID = 2428430
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
@@ -360,7 +348,7 @@ protobuf:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 21):
+#  recipe to execute (from 'Makefile', line 27):
 	protoc --go_out=:api/v1 \
 		   --go-grpc_out=require_unimplemented_servers=false:api/v1 \
 	       --go_opt=paths=source_relative \
@@ -383,11 +371,7 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-<<<<<<< HEAD
-#  Last modified 2022-04-03 23:51:53.765713676
-=======
-#  Last modified 2022-04-04 00:07:27.19962648
->>>>>>> security
+#  Last modified 2022-04-04 02:49:31.44500693
 #  File has been updated.
 #  Successfully updated.
 
@@ -396,11 +380,7 @@ test:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-<<<<<<< HEAD
-#  recipe to execute (from 'Makefile', line 32):
-=======
-#  recipe to execute (from 'Makefile', line 30):
->>>>>>> security
+#  recipe to execute (from 'Makefile', line 38):
 	go test -v -race ./test/...
 	
 
@@ -409,33 +389,16 @@ gencert:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-<<<<<<< HEAD
 #  recipe to execute (from 'Makefile', line 10):
 	cfssl gencert -initca ${CA_CONFIG_PATH}/ca-csr.json | cfssljson -bare ca
 	cfssl gencert -ca=ca.pem \
 	              -ca-key=ca-key.pem \
 				  -config=${CA_CONFIG_PATH}/ca-config.json \
 				  -profile=server ${CA_CONFIG_PATH}/server-csr.json | cfssljson -bare server
-	mv *.pem *.csr ${CONFIG_PATH}
-=======
-#  recipe to execute (from 'Makefile', line 21):
-	protoc --go_out=:api/v1 \
-	       --go_opt=paths=source_relative \
-		   --proto_path=:api/v1/protos \
-		   api/v1/protos/*.proto
->>>>>>> security
-
-gencert:
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 10):
-	cfssl gencert -initca ${CA_CONFIG_PATH}/ca-csr.json | cfssljson -bare ca
 	cfssl gencert -ca=ca.pem \
 	              -ca-key=ca-key.pem \
 				  -config=${CA_CONFIG_PATH}/ca-config.json \
-				  -profile=server ${CA_CONFIG_PATH}/server-csr.json | cfssljson -bare server
+				  -profile=client ${CA_CONFIG_PATH}/client-csr.json | cfssljson -bare client
 	mv *.pem *.csr ${CONFIG_PATH}
 
 # Not a target:
@@ -456,7 +419,7 @@ main:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 18):
+#  recipe to execute (from 'Makefile', line 24):
 	go run cmd/main.go
 
 # files hash-table stats:
@@ -467,22 +430,12 @@ main:
 
 # No general ('VPATH' variable) search path.
 
-<<<<<<< HEAD
 # strcache buffers: 1 (0) / strings = 24 / storage = 181 B / avg = 7 B
 # current buf: size = 8162 B / used = 181 B / count = 24 / avg = 7 B
 
 # strcache performance: lookups = 42 / hit rate = 42%
 # hash-table stats:
 # Load=24/8192=0%, Rehash=0, Collisions=1/42=2%
-# Finished Make data base on Mon Apr  4 00:05:24 2022
-=======
-# strcache buffers: 1 (0) / strings = 23 / storage = 171 B / avg = 7 B
-# current buf: size = 8162 B / used = 171 B / count = 23 / avg = 7 B
-
-# strcache performance: lookups = 41 / hit rate = 43%
-# hash-table stats:
-# Load=23/8192=0%, Rehash=0, Collisions=1/41=2%
-# Finished Make data base on Mon Apr  4 00:07:54 2022
->>>>>>> security
+# Finished Make data base on Mon Apr  4 02:52:12 2022
 
  
