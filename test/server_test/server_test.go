@@ -44,7 +44,10 @@ func setupTest(t *testing.T, fn func(*server.Config)) (
 	require.NoError(t, err)
 
 	clientTLSConfig, err := config.SetupTLSConfig(config.TLSConfig{
-		CAFile: config.CAFile,
+		CAFile:   config.CAFile,
+		CertFile: config.ClientCertFile,
+		KeyFile:  config.ClientKeyFile,
+		Server:   false,
 	})
 	clientCreds := credentials.NewTLS(clientTLSConfig)
 
@@ -62,6 +65,7 @@ func setupTest(t *testing.T, fn func(*server.Config)) (
 		CertFile:     config.ServerCertFile,
 		KeyFile:      config.ServerKeyFile,
 		ServerAdress: listener.Addr().String(),
+		Server:       true,
 	})
 	require.NoError(t, err)
 	serverCreds := credentials.NewTLS(serverTLSConfig)
