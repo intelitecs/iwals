@@ -73,6 +73,7 @@ func setupTest(t *testing.T, fn func(*server.Config)) (
 	listener, err := net.Listen("tcp", "127.0.0.1:0")
 	require.NoError(t, err)
 
+	// server's tls config
 	serverTLSConfig, err := config.SetupTLSConfig(config.TLSConfig{
 		CAFile:       config.CAFile,
 		CertFile:     config.ServerCertFile,
@@ -81,8 +82,10 @@ func setupTest(t *testing.T, fn func(*server.Config)) (
 		Server:       true,
 	})
 	require.NoError(t, err)
+	// server's credentials
 	serverCreds := credentials.NewTLS(serverTLSConfig)
 
+	// clients
 	var rootConn *grpc.ClientConn
 	rootConn, rootClient, _ = newClient(config.RootClientCertFile, config.RootClientKeyFile, listener, t)
 	var nobodyConn *grpc.ClientConn
@@ -97,8 +100,10 @@ func setupTest(t *testing.T, fn func(*server.Config)) (
 	err = log.NewSegment(uint64(0))
 	require.NoError(t, err)
 
+	// authorization
 	authorizer := authorization.NewAuthorizer(config.ACLModelFile, config.ACLPolicyFile)
 
+	// server's config
 	cfg = &server.Config{
 		CommitLog:  log,
 		Authorizer: authorizer,
@@ -106,7 +111,7 @@ func setupTest(t *testing.T, fn func(*server.Config)) (
 	if fn != nil {
 		fn(cfg)
 	}
-
+	// grpc server
 	srv, err := server.NewGRPCServer(cfg, grpc.Creds(serverCreds))
 	require.NoError(t, err)
 
