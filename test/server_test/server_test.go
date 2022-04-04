@@ -10,8 +10,11 @@ import (
 	lg "iwals/internal/log"
 	server "iwals/internal/server"
 
+	"iwals/internal/config"
+
 	"github.com/stretchr/testify/require"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials"
 )
 
 func TestServer(t *testing.T) {
@@ -37,12 +40,30 @@ func setupTest(t *testing.T, fn func(*server.Config)) (
 	teardown func(),
 ) {
 	t.Helper()
-	listener, err := net.Listen("tcp", ":0")
+	listener, err := net.Listen("tcp", "127.0.0.1:0")
 	require.NoError(t, err)
 
-	clientOpts := []grpc.DialOption{grpc.WithInsecure()}
-	conn, err := grpc.Dial(listener.Addr().String(), clientOpts...)
+	clientTLSConfig, err := config.SetupTLSConfig(config.TLSConfig{
+		CAFile: config.CAFile,
+	})
+	clientCreds := credentials.NewTLS(clientTLSConfig)
+
+	//clientOpts := []grpc.DialOption{grpc.WithInsecure()}
+	conn, err := grpc.Dial(listener.Addr().String(),
+		grpc.WithTransportCredentials(clientCreds),
+	)
 	require.NoError(t, err)
+
+	client = api.NewLogClient(conn)
+
+	serverTLSConfig, err := config.SetupTLSConfig(config.TLSConfig{
+		CAFile:       config.CAFile,
+		CertFile:     config.ServerCertFile,
+		KeyFile:      config.ServerKeyFile,
+		ServerAdress: listener.Addr().String(),
+	})
+	require.NoError(t, err)
+	serverCreds := credentials.NewTLS(serverTLSConfig)
 
 	dir, err := ioutil.TempDir("", "server-test")
 	require.NoError(t, err)
@@ -60,19 +81,18 @@ func setupTest(t *testing.T, fn func(*server.Config)) (
 		fn(cfg)
 	}
 
-	srv, err := server.NewGRPCServer(cfg)
+	srv, err := server.NewGRPCServer(cfg, grpc.Creds(serverCreds))
 	require.NoError(t, err)
 
 	go func() {
 		srv.Serve(listener)
 	}()
 
-	client = api.NewLogClient(conn)
 	return client, cfg, func() {
 		srv.Stop()
 		conn.Close()
 		listener.Close()
-		log.Remove()
+		//log.Remove()
 	}
 }
 
