@@ -15,7 +15,7 @@ type TLSConfig struct {
 	Server       bool
 }
 
-func setupTLSConfig(cfg TLSConfig) (*tls.Config, error) {
+func SetupTLSConfig(cfg TLSConfig) (*tls.Config, error) {
 	var err error
 	tlsConfig := &tls.Config{}
 	if cfg.CertFile != "" && cfg.KeyFile != "" {

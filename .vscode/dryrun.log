@@ -1,5 +1,5 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/imhotep/go/src/github.com/intelitecs/iwals'
-go run cmd/main.go
+mkdir -p /home/imhotep/.iwals
 make: Leaving directory '/home/imhotep/go/src/github.com/intelitecs/iwals'
  
