@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Apr  4 00:07:54 2022
+# Make data base, printed on Mon Apr  4 02:26:18 2022
 
 # Variables
 
@@ -231,7 +231,7 @@ SBT_HOME = /home/imhotep/.sdkman/candidates/sbt/current
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-dde19b2c-5708-47d1-ba38-a4e7bd9b10c1.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-54fbf23c-b57e-4940-aeb4-d2a654e7e0e4.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -279,10 +279,10 @@ QT_ACCESSIBILITY = 1
 # environment
 DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
 # environment
+ 
 ORACLE_SID = XE
 # default
 MAKEFILES := 
- 
 # automatic
 <F = $(notdir $<)
 # environment
@@ -322,7 +322,7 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 2393231
+VSCODE_PID = 2423684
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
@@ -359,7 +359,7 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-04 00:07:27.19962648
+#  Last modified 2022-04-04 02:24:24.158943248
 #  File has been updated.
 #  Successfully updated.
 
@@ -368,7 +368,7 @@ test:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 30):
+#  recipe to execute (from 'Makefile', line 36):
 	go test -v -race ./test/...
 	
 
@@ -376,7 +376,7 @@ protocmsg:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 21):
+#  recipe to execute (from 'Makefile', line 27):
 	protoc --go_out=:api/v1 \
 	       --go_opt=paths=source_relative \
 		   --proto_path=:api/v1/protos \
@@ -393,6 +393,10 @@ gencert:
 	              -ca-key=ca-key.pem \
 				  -config=${CA_CONFIG_PATH}/ca-config.json \
 				  -profile=server ${CA_CONFIG_PATH}/server-csr.json | cfssljson -bare server
+	cfssl gencert -ca=ca.pem \
+	              -ca-key=ca-key.pem \
+				  -config=${CA_CONFIG_PATH}/ca-config.json \
+				  -profile=client ${CA_CONFIG_PATH}/client-csr.json | cfssljson -bare client
 	mv *.pem *.csr ${CONFIG_PATH}
 
 # Not a target:
@@ -413,7 +417,7 @@ main:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 18):
+#  recipe to execute (from 'Makefile', line 24):
 	go run cmd/main.go
 
 # files hash-table stats:
@@ -430,6 +434,6 @@ main:
 # strcache performance: lookups = 41 / hit rate = 43%
 # hash-table stats:
 # Load=23/8192=0%, Rehash=0, Collisions=1/41=2%
-# Finished Make data base on Mon Apr  4 00:07:54 2022
+# Finished Make data base on Mon Apr  4 02:26:19 2022
 
  
