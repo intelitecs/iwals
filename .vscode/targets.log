@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Apr  2 02:37:15 2022
+# Make data base, printed on Mon Apr  4 00:05:24 2022
 
 # Variables
 
@@ -46,6 +48,8 @@ XMODIFIERS = @im=ibus
 CURDIR := /home/imhotep/go/src/github.com/intelitecs/iwals
 # makefile
 SHELL = /bin/sh
+# makefile (from 'Makefile', line 1)
+CONFIG_PATH = ${HOME}/.iwals
 # environment
 VTE_VERSION = 6003
 # environment
@@ -84,6 +88,8 @@ _ = /usr/bin/code
 INFOPATH = /usr/local/texlive/2019/texmf-dist/doc/info
 # environment
 MANAGERPID = 5218
+# makefile (from 'Makefile', line 2)
+CA_CONFIG_PATH = internal/security/ca
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -225,13 +231,13 @@ SBT_HOME = /home/imhotep/.sdkman/candidates/sbt/current
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-a1acdd85-461c-40db-9c95-0d051ce9ca63.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-f8a9b13a-92ab-42a9-987b-c69f9ffccfe3.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
 USER = imhotep
 # makefile
-.DEFAULT_GOAL := main
+.DEFAULT_GOAL := init
 # environment
 XDG_CURRENT_DESKTOP = Unity
 # environment
@@ -270,6 +276,7 @@ GSETTINGS_SCHEMA_DIR_CONDA_BACKUP =
 CARGO_PATH = /home/imhotep/.cargo
 # environment
 QT_ACCESSIBILITY = 1
+ 
 # environment
 DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
 # environment
@@ -279,9 +286,6 @@ MAKEFILES :=
 # automatic
 <F = $(notdir $<)
 # environment
- 
-make: *** No rule to make target 'all'.  Stop.
-
 SDKMAN_CANDIDATES_DIR = /home/imhotep/.sdkman/candidates
 # environment
 LC_ALL = C
@@ -318,11 +322,11 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 1499579
+VSCODE_PID = 2391349
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
-# Load=154/1024=15%, Rehash=0, Collisions=20/179=11%
+# Load=156/1024=15%, Rehash=0, Collisions=21/181=12%
 
 # Pattern-specific Variable Values
 
@@ -330,15 +334,27 @@ _CE_CONDA =
 
 # Directories
 
-# . (device 66306, inode 9363548): 13 files, no impossibilities.
+# . (device 66306, inode 9363548): 14 files, no impossibilities.
 
-# 13 files, no impossibilities in 1 directories.
+# 14 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 # No implicit rules.
 
 # Files
+
+protobuf:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 21):
+	protoc --go_out=:api/v1 \
+		   --go-grpc_out=require_unimplemented_servers=false:api/v1 \
+	       --go_opt=paths=source_relative \
+		   --go-grpc_opt=paths=source_relative \
+		   --proto_path=:api/v1/protos \
+		   api/v1/protos/*.proto
 
 # Not a target:
 all:
@@ -347,7 +363,7 @@ all:
 #  File does not exist.
 #  File has not been updated.
 
-.PHONY: test
+.PHONY: init gencert test
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -355,7 +371,7 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-02 02:12:59.95784448
+#  Last modified 2022-04-03 23:51:53.765713676
 #  File has been updated.
 #  Successfully updated.
 
@@ -364,19 +380,22 @@ test:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 15):
+#  recipe to execute (from 'Makefile', line 32):
 	go test -v -race ./test/...
 	
 
-protocmsg:
+gencert:
+#  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
-#  Modification time never checked.
+#  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 6):
-	protoc --go_out=:api/v1 \
-	       --go_opt=paths=source_relative \
-		   --proto_path=:api/v1/protos \
-		   api/v1/protos/*.proto
+#  recipe to execute (from 'Makefile', line 10):
+	cfssl gencert -initca ${CA_CONFIG_PATH}/ca-csr.json | cfssljson -bare ca
+	cfssl gencert -ca=ca.pem \
+	              -ca-key=ca-key.pem \
+				  -config=${CA_CONFIG_PATH}/ca-config.json \
+				  -profile=server ${CA_CONFIG_PATH}/server-csr.json | cfssljson -bare server
+	mv *.pem *.csr ${CONFIG_PATH}
 
 # Not a target:
 .DEFAULT:
@@ -384,27 +403,35 @@ protocmsg:
 #  Modification time never checked.
 #  File has not been updated.
 
+init:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 6):
+	mkdir -p ${CONFIG_PATH}
+
 main:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 3):
+#  recipe to execute (from 'Makefile', line 18):
 	go run cmd/main.go
 
 # files hash-table stats:
-# Load=8/1024=1%, Rehash=0, Collisions=0/20=0%
+# Load=10/1024=1%, Rehash=0, Collisions=0/28=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 21 / storage = 158 B / avg = 7 B
-# current buf: size = 8162 B / used = 158 B / count = 21 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 24 / storage = 181 B / avg = 7 B
+# current buf: size = 8162 B / used = 181 B / count = 24 / avg = 7 B
 
-# strcache performance: lookups = 31 / hit rate = 32%
+# strcache performance: lookups = 42 / hit rate = 42%
 # hash-table stats:
-# Load=21/8192=0%, Rehash=0, Collisions=1/31=3%
-# Finished Make data base on Sat Apr  2 02:37:15 2022
+# Load=24/8192=0%, Rehash=0, Collisions=1/42=2%
+# Finished Make data base on Mon Apr  4 00:05:24 2022
 
  
