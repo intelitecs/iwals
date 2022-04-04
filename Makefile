@@ -29,7 +29,7 @@ gencert:
 
 
 $(CONFIG_PATH)/model.conf:
-	cp  internal/security/authorization/model.com $(CONFIG_PATH)/model.conf
+	cp  internal/security/authorization/model.conf $(CONFIG_PATH)/model.conf
 
 $(CONFIG_PATH)/policy.csv:
 	cp internal/security/authorization/policy.csv $(CONFIG_PATH)/policy.csv
