@@ -1,0 +1,15 @@
+{
+    "CN": "client",
+    "hosts": [""],
+    "key": {
+        "algo": "rsa",
+        "size": 2048
+    },
+    "names": [{
+        "C": "Côte d'ivoire",
+        "L": "Abidjan",
+        "ST": "Côte d'ivoire",
+        "O": "Intelitec",
+        "OU": "Distributed Services"
+    }]
+}
