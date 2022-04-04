@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Apr  4 02:52:12 2022
+# Make data base, printed on Mon Apr  4 02:26:18 2022
 
 # Variables
 
@@ -231,7 +231,11 @@ SBT_HOME = /home/imhotep/.sdkman/candidates/sbt/current
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
+<<<<<<< HEAD
 VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c74ac6ae-8e91-4d78-a45a-f065ee6b73ce.sock
+=======
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-54fbf23c-b57e-4940-aeb4-d2a654e7e0e4.sock
+>>>>>>> security
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -279,10 +283,10 @@ QT_ACCESSIBILITY = 1
 # environment
 DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
 # environment
+ 
 ORACLE_SID = XE
 # default
 MAKEFILES := 
- 
 # automatic
 <F = $(notdir $<)
 # environment
@@ -322,7 +326,11 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
+<<<<<<< HEAD
 VSCODE_PID = 2428430
+=======
+VSCODE_PID = 2423684
+>>>>>>> security
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
@@ -371,7 +379,11 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
+<<<<<<< HEAD
 #  Last modified 2022-04-04 02:49:31.44500693
+=======
+#  Last modified 2022-04-04 02:24:24.158943248
+>>>>>>> security
 #  File has been updated.
 #  Successfully updated.
 
@@ -380,10 +392,27 @@ test:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
+<<<<<<< HEAD
 #  recipe to execute (from 'Makefile', line 38):
 	go test -v -race ./test/...
 	
 
+=======
+#  recipe to execute (from 'Makefile', line 36):
+	go test -v -race ./test/...
+	
+
+protocmsg:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 27):
+	protoc --go_out=:api/v1 \
+	       --go_opt=paths=source_relative \
+		   --proto_path=:api/v1/protos \
+		   api/v1/protos/*.proto
+
+>>>>>>> security
 gencert:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
@@ -435,7 +464,12 @@ main:
 
 # strcache performance: lookups = 42 / hit rate = 42%
 # hash-table stats:
+<<<<<<< HEAD
 # Load=24/8192=0%, Rehash=0, Collisions=1/42=2%
 # Finished Make data base on Mon Apr  4 02:52:12 2022
+=======
+# Load=23/8192=0%, Rehash=0, Collisions=1/41=2%
+# Finished Make data base on Mon Apr  4 02:26:19 2022
+>>>>>>> security
 
  
