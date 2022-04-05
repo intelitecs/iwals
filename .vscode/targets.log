@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Apr  4 02:26:18 2022
+# Make data base, printed on Tue Apr  5 12:36:24 2022
 
 # Variables
 
@@ -231,11 +231,7 @@ SBT_HOME = /home/imhotep/.sdkman/candidates/sbt/current
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-<<<<<<< HEAD
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c74ac6ae-8e91-4d78-a45a-f065ee6b73ce.sock
-=======
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-54fbf23c-b57e-4940-aeb4-d2a654e7e0e4.sock
->>>>>>> security
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-f65aa9a0-db30-4932-a531-ae9087c60e69.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -283,11 +279,11 @@ QT_ACCESSIBILITY = 1
 # environment
 DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
 # environment
- 
 ORACLE_SID = XE
 # default
 MAKEFILES := 
 # automatic
+ 
 <F = $(notdir $<)
 # environment
 SDKMAN_CANDIDATES_DIR = /home/imhotep/.sdkman/candidates
@@ -326,15 +322,11 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-<<<<<<< HEAD
-VSCODE_PID = 2428430
-=======
-VSCODE_PID = 2423684
->>>>>>> security
+VSCODE_PID = 2583186
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
-# Load=156/1024=15%, Rehash=0, Collisions=21/181=12%
+# Load=156/1024=15%, Rehash=0, Collisions=25/189=13%
 
 # Pattern-specific Variable Values
 
@@ -356,7 +348,7 @@ protobuf:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 27):
+#  recipe to execute (from 'Makefile', line 41):
 	protoc --go_out=:api/v1 \
 		   --go-grpc_out=require_unimplemented_servers=false:api/v1 \
 	       --go_opt=paths=source_relative \
@@ -379,40 +371,26 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-<<<<<<< HEAD
-#  Last modified 2022-04-04 02:49:31.44500693
-=======
-#  Last modified 2022-04-04 02:24:24.158943248
->>>>>>> security
+#  Last modified 2022-04-04 03:31:48.739230385
 #  File has been updated.
 #  Successfully updated.
 
-test:
+test: /home/imhotep/.iwals/model.conf /home/imhotep/.iwals/policy.csv
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-<<<<<<< HEAD
-#  recipe to execute (from 'Makefile', line 38):
+#  recipe to execute (from 'Makefile', line 52):
 	go test -v -race ./test/...
 	
 
-=======
-#  recipe to execute (from 'Makefile', line 36):
-	go test -v -race ./test/...
-	
-
-protocmsg:
+/home/imhotep/.iwals/policy.csv:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 27):
-	protoc --go_out=:api/v1 \
-	       --go_opt=paths=source_relative \
-		   --proto_path=:api/v1/protos \
-		   api/v1/protos/*.proto
+#  recipe to execute (from 'Makefile', line 35):
+	cp internal/security/authorization/policy.csv $(CONFIG_PATH)/policy.csv
 
->>>>>>> security
 gencert:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
@@ -427,7 +405,13 @@ gencert:
 	cfssl gencert -ca=ca.pem \
 	              -ca-key=ca-key.pem \
 				  -config=${CA_CONFIG_PATH}/ca-config.json \
-				  -profile=client ${CA_CONFIG_PATH}/client-csr.json | cfssljson -bare client
+				  -cn="root" \
+				  -profile=client ${CA_CONFIG_PATH}/client-csr.json | cfssljson -bare root-client
+	cfssl gencert -ca=ca.pem \
+	              -ca-key=ca-key.pem \
+				  -config=${CA_CONFIG_PATH}/ca-config.json \
+				  -cn="nobody" \
+				  -profile=client ${CA_CONFIG_PATH}/client-csr.json | cfssljson -bare  nobody-client		  
 	mv *.pem *.csr ${CONFIG_PATH}
 
 # Not a target:
@@ -444,32 +428,34 @@ init:
 #  recipe to execute (from 'Makefile', line 6):
 	mkdir -p ${CONFIG_PATH}
 
+/home/imhotep/.iwals/model.conf:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 32):
+	cp  internal/security/authorization/model.conf $(CONFIG_PATH)/model.conf
+
 main:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 24):
+#  recipe to execute (from 'Makefile', line 38):
 	go run cmd/main.go
 
 # files hash-table stats:
-# Load=10/1024=1%, Rehash=0, Collisions=0/28=0%
+# Load=12/1024=1%, Rehash=0, Collisions=0/32=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 24 / storage = 181 B / avg = 7 B
-# current buf: size = 8162 B / used = 181 B / count = 24 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 26 / storage = 245 B / avg = 9 B
+# current buf: size = 8162 B / used = 245 B / count = 26 / avg = 9 B
 
-# strcache performance: lookups = 42 / hit rate = 42%
+# strcache performance: lookups = 48 / hit rate = 45%
 # hash-table stats:
-<<<<<<< HEAD
-# Load=24/8192=0%, Rehash=0, Collisions=1/42=2%
-# Finished Make data base on Mon Apr  4 02:52:12 2022
-=======
-# Load=23/8192=0%, Rehash=0, Collisions=1/41=2%
-# Finished Make data base on Mon Apr  4 02:26:19 2022
->>>>>>> security
+# Load=26/8192=0%, Rehash=0, Collisions=1/48=2%
+# Finished Make data base on Tue Apr  5 12:36:24 2022
 
  
