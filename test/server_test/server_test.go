@@ -4,7 +4,9 @@ import (
 	"context"
 	"io/ioutil"
 	"net"
+	"os"
 	"testing"
+	"time"
 
 	api "iwals/api/v1"
 	lg "iwals/internal/log"
@@ -14,12 +16,31 @@ import (
 
 	"iwals/internal/security/authorization"
 
+	"flag"
+
+	"go.opencensus.io/examples/exporter"
+	"go.uber.org/zap"
+
 	"github.com/stretchr/testify/require"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/status"
 )
+
+var debug = flag.Bool("debug", true, "Enable observability for debugging.")
+
+func TestMain(m *testing.M) {
+	flag.Parse()
+	if *debug {
+		logger, err := zap.NewDevelopment()
+		if err != nil {
+			panic(err)
+		}
+		zap.ReplaceGlobals(logger)
+	}
+	os.Exit(m.Run())
+}
 
 func newClient(certPath, keyPath string, serverListener net.Listener, t *testing.T) (*grpc.ClientConn, api.LogClient, []grpc.DialOption) {
 	tlsConfig, err := config.SetupTLSConfig(config.TLSConfig{
@@ -103,6 +124,25 @@ func setupTest(t *testing.T, fn func(*server.Config)) (
 	// authorization
 	authorizer := authorization.NewAuthorizer(config.ACLModelFile, config.ACLPolicyFile)
 
+	var telemetryExporter *exporter.LogExporter
+	if *debug {
+		metricsLogFile, err := ioutil.TempFile("", "metrics-*.log")
+		require.NoError(t, err)
+		t.Logf("metrics log file: %s", metricsLogFile.Name())
+		tracesLogFile, err := ioutil.TempFile("", "traces-*.log")
+		require.NoError(t, err)
+		t.Logf("traces log file: %s", tracesLogFile.Name())
+		require.NoError(t, err)
+		telemetryExporter, err = exporter.NewLogExporter(exporter.Options{
+			MetricsLogFile:    metricsLogFile.Name(),
+			TracesLogFile:     tracesLogFile.Name(),
+			ReportingInterval: time.Second,
+		})
+		require.NoError(t, err)
+		err = telemetryExporter.Start()
+		require.NoError(t, err)
+	}
+
 	// server's config
 	cfg = &server.Config{
 		CommitLog:  log,
@@ -124,6 +164,11 @@ func setupTest(t *testing.T, fn func(*server.Config)) (
 		rootConn.Close()
 		nobodyConn.Close()
 		listener.Close()
+		if telemetryExporter != nil {
+			time.Sleep(1500 * time.Millisecond)
+			telemetryExporter.Stop()
+			telemetryExporter.Close()
+		}
 		//log.Remove()
 	}
 }

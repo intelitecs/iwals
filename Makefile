@@ -1,6 +1,7 @@
 CONFIG_PATH=${HOME}/.iwals
 CA_CONFIG_PATH=internal/security/ca
 
+
 .PHONY: init
 init:
 	mkdir -p ${CONFIG_PATH}
