@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Apr 14 04:45:54 2022
+# Make data base, printed on Thu Apr 14 05:08:05 2022
 
 # Variables
 
@@ -231,7 +231,7 @@ SBT_HOME = /home/imhotep/.sdkman/candidates/sbt/current
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-2a169a80-7db8-4a5f-9491-4458adb847a7.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-102e58d2-fb13-4bb1-830b-e0ba5403025c.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -280,8 +280,8 @@ QT_ACCESSIBILITY = 1
 DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
 # environment
 ORACLE_SID = XE
-# default
  
+# default
 MAKEFILES := 
 # automatic
 <F = $(notdir $<)
@@ -322,7 +322,7 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 770535
+VSCODE_PID = 778625
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
@@ -359,7 +359,7 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-14 04:41:59.246762567
+#  Last modified 2022-04-14 05:05:24.445760073
 #  File has been updated.
 #  Successfully updated.
 
@@ -454,6 +454,6 @@ main:
 # strcache performance: lookups = 47 / hit rate = 46%
 # hash-table stats:
 # Load=25/8192=0%, Rehash=0, Collisions=1/47=2%
-# Finished Make data base on Thu Apr 14 04:45:54 2022
+# Finished Make data base on Thu Apr 14 05:08:05 2022
 
  
