@@ -29,10 +29,10 @@ gencert:
 
 
 $(CONFIG_PATH)/model.conf:
-	cp  internal/security/authorization/model.com $(CONFIG_PATH)/model.conf
+	cp  internal/auth/model.com $(CONFIG_PATH)/model.conf
 
 $(CONFIG_PATH)/policy.csv:
-	cp internal/security/authorization/policy.csv $(CONFIG_PATH)/policy.csv
+	cp internal/auth/policy.csv $(CONFIG_PATH)/policy.csv
 
 main:
 	go run cmd/main.go
