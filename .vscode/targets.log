@@ -8,7 +8,11 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
+<<<<<<< HEAD
 # Make data base, printed on Wed Apr 13 03:40:20 2022
+=======
+# Make data base, printed on Thu Apr 14 05:08:05 2022
+>>>>>>> security
 
 # Variables
 
@@ -231,7 +235,11 @@ SBT_HOME = /home/imhotep/.sdkman/candidates/sbt/current
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
+<<<<<<< HEAD
 VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-ddf02c28-4317-4aa8-87fe-fb040ab1fc95.sock
+=======
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-102e58d2-fb13-4bb1-830b-e0ba5403025c.sock
+>>>>>>> security
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -280,6 +288,7 @@ QT_ACCESSIBILITY = 1
 DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
 # environment
 ORACLE_SID = XE
+ 
 # default
 MAKEFILES := 
 # automatic
@@ -322,7 +331,11 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
+<<<<<<< HEAD
 VSCODE_PID = 6607
+=======
+VSCODE_PID = 778625
+>>>>>>> security
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
@@ -371,7 +384,11 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
+<<<<<<< HEAD
 #  Last modified 2022-04-11 17:32:31.642546152
+=======
+#  Last modified 2022-04-14 05:05:24.445760073
+>>>>>>> security
 #  File has been updated.
 #  Successfully updated.
 
@@ -380,7 +397,11 @@ test: /home/imhotep/.iwals/model.conf /home/imhotep/.iwals/policy.csv
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
+<<<<<<< HEAD
 #  recipe to execute (from 'Makefile', line 53):
+=======
+#  recipe to execute (from 'Makefile', line 50):
+>>>>>>> security
 	go test -v -race ./test/...
 	
 
@@ -388,9 +409,24 @@ test: /home/imhotep/.iwals/model.conf /home/imhotep/.iwals/policy.csv
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+<<<<<<< HEAD
 #  recipe to execute (from 'Makefile', line 36):
 	cp internal/security/authorization/policy.csv $(CONFIG_PATH)/policy.csv
  
+=======
+#  recipe to execute (from 'Makefile', line 41):
+	protoc --go_out=:api/v1 \
+	       --go_opt=paths=source_relative \
+		   --proto_path=:api/v1/protos \
+		   api/v1/protos/*.proto
+>>>>>>> security
+
+/home/imhotep/.iwals/policy.csv:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	cp internal/auth/policy.csv $(CONFIG_PATH)/policy.csv
 
 gencert:
 #  Phony target (prerequisite of .PHONY).
@@ -433,15 +469,24 @@ init:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+<<<<<<< HEAD
 #  recipe to execute (from 'Makefile', line 33):
 	cp  internal/security/authorization/model.conf $(CONFIG_PATH)/model.conf
+=======
+#  recipe to execute (from 'Makefile', line 32):
+	cp  internal/auth/model.com $(CONFIG_PATH)/model.conf
+>>>>>>> security
 
 main:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
  
 #  File has not been updated.
+<<<<<<< HEAD
 #  recipe to execute (from 'Makefile', line 39):
+=======
+#  recipe to execute (from 'Makefile', line 38):
+>>>>>>> security
 	go run cmd/main.go
 
 # files hash-table stats:
@@ -452,6 +497,7 @@ main:
 
 # No general ('VPATH' variable) search path.
 
+<<<<<<< HEAD
 # strcache buffers: 1 (0) / strings = 26 / storage = 245 B / avg = 9 B
 # current buf: size = 8162 B / used = 245 B / count = 26 / avg = 9 B
 
@@ -459,5 +505,14 @@ main:
 # hash-table stats:
 # Load=26/8192=0%, Rehash=0, Collisions=1/48=2%
 # Finished Make data base on Wed Apr 13 03:40:20 2022
+=======
+# strcache buffers: 1 (0) / strings = 25 / storage = 235 B / avg = 9 B
+# current buf: size = 8162 B / used = 235 B / count = 25 / avg = 9 B
+
+# strcache performance: lookups = 47 / hit rate = 46%
+# hash-table stats:
+# Load=25/8192=0%, Rehash=0, Collisions=1/47=2%
+# Finished Make data base on Thu Apr 14 05:08:05 2022
+>>>>>>> security
 
  
