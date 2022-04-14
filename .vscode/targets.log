@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Apr  4 02:26:18 2022
+# Make data base, printed on Thu Apr 14 04:45:54 2022
 
 # Variables
 
@@ -55,7 +55,7 @@ VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 9:60131
+JOURNAL_STREAM = 9:71968
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -87,9 +87,9 @@ _ = /usr/bin/code
 # environment
 INFOPATH = /usr/local/texlive/2019/texmf-dist/doc/info
 # environment
-MANAGERPID = 5218
+MANAGERPID = 5190
 # makefile (from 'Makefile', line 2)
-CA_CONFIG_PATH = internal/security/ca
+CA_CONFIG_PATH = internal/auth/ca
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -109,7 +109,7 @@ NODEJSPATH = /usr/local/node-v12.14.1-linux-x64
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/imhotep-Precision-7730:@/tmp/.ICE-unix/5470,unix/imhotep-Precision-7730:/tmp/.ICE-unix/5470
+SESSION_MANAGER = local/imhotep-Precision-7730:@/tmp/.ICE-unix/5435,unix/imhotep-Precision-7730:/tmp/.ICE-unix/5435
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -133,7 +133,7 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = d5933e4b737b4a53b13bf521544811b1
+INVOCATION_ID = 1e5d6abad10340a09a34d951a59d18a1
 # environment
 LDFLAGS = -L/usr/local/gtk/lib
 # default
@@ -163,7 +163,7 @@ GROOVY_HOME = /home/imhotep/.sdkman/candidates/groovy/current
 # environment
 ANT_HOME = /home/imhotep/.sdkman/candidates/ant/current
 # environment
-SSH_AGENT_PID = 5418
+SSH_AGENT_PID = 5390
 # environment
 PKG_CONFIG_PATH = /usr/local/gtk/lib/pkgconfig
 # environment
@@ -231,7 +231,7 @@ SBT_HOME = /home/imhotep/.sdkman/candidates/sbt/current
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-54fbf23c-b57e-4940-aeb4-d2a654e7e0e4.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-2a169a80-7db8-4a5f-9491-4458adb847a7.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -279,9 +279,9 @@ QT_ACCESSIBILITY = 1
 # environment
 DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
 # environment
- 
 ORACLE_SID = XE
 # default
+ 
 MAKEFILES := 
 # automatic
 <F = $(notdir $<)
@@ -296,11 +296,11 @@ SPRINGBOOT_HOME = /home/imhotep/.sdkman/candidates/springboot/current
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/340283ea_7959_40a4_b9c7_e33acfc54ce4
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/ba89b592_144d_4d10_9e31_74d55d82bc77
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.85
+GNOME_TERMINAL_SERVICE = :1.84
 # default
 SUFFIXES := 
 # environment
@@ -322,11 +322,11 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 2423684
+VSCODE_PID = 770535
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
-# Load=156/1024=15%, Rehash=0, Collisions=21/181=12%
+# Load=156/1024=15%, Rehash=0, Collisions=25/189=13%
 
 # Pattern-specific Variable Values
 
@@ -359,16 +359,16 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-04 02:24:24.158943248
+#  Last modified 2022-04-14 04:41:59.246762567
 #  File has been updated.
 #  Successfully updated.
 
-test:
+test: /home/imhotep/.iwals/model.conf /home/imhotep/.iwals/policy.csv
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 36):
+#  recipe to execute (from 'Makefile', line 50):
 	go test -v -race ./test/...
 	
 
@@ -376,11 +376,18 @@ protocmsg:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 27):
+#  recipe to execute (from 'Makefile', line 41):
 	protoc --go_out=:api/v1 \
 	       --go_opt=paths=source_relative \
 		   --proto_path=:api/v1/protos \
 		   api/v1/protos/*.proto
+
+/home/imhotep/.iwals/policy.csv:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	cp internal/auth/policy.csv $(CONFIG_PATH)/policy.csv
 
 gencert:
 #  Phony target (prerequisite of .PHONY).
@@ -396,7 +403,13 @@ gencert:
 	cfssl gencert -ca=ca.pem \
 	              -ca-key=ca-key.pem \
 				  -config=${CA_CONFIG_PATH}/ca-config.json \
-				  -profile=client ${CA_CONFIG_PATH}/client-csr.json | cfssljson -bare client
+				  -cn="root" \
+				  -profile=client ${CA_CONFIG_PATH}/client-csr.json | cfssljson -bare root-client
+	cfssl gencert -ca=ca.pem \
+	              -ca-key=ca-key.pem \
+				  -config=${CA_CONFIG_PATH}/ca-config.json \
+				  -cn="nobody" \
+				  -profile=client ${CA_CONFIG_PATH}/client-csr.json | cfssljson -bare  nobody-client		  
 	mv *.pem *.csr ${CONFIG_PATH}
 
 # Not a target:
@@ -413,27 +426,34 @@ init:
 #  recipe to execute (from 'Makefile', line 6):
 	mkdir -p ${CONFIG_PATH}
 
+/home/imhotep/.iwals/model.conf:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 32):
+	cp  internal/auth/model.com $(CONFIG_PATH)/model.conf
+
 main:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 24):
+#  recipe to execute (from 'Makefile', line 38):
 	go run cmd/main.go
 
 # files hash-table stats:
-# Load=10/1024=1%, Rehash=0, Collisions=0/28=0%
+# Load=12/1024=1%, Rehash=0, Collisions=0/32=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 23 / storage = 171 B / avg = 7 B
-# current buf: size = 8162 B / used = 171 B / count = 23 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 25 / storage = 235 B / avg = 9 B
+# current buf: size = 8162 B / used = 235 B / count = 25 / avg = 9 B
 
-# strcache performance: lookups = 41 / hit rate = 43%
+# strcache performance: lookups = 47 / hit rate = 46%
 # hash-table stats:
-# Load=23/8192=0%, Rehash=0, Collisions=1/41=2%
-# Finished Make data base on Mon Apr  4 02:26:19 2022
+# Load=25/8192=0%, Rehash=0, Collisions=1/47=2%
+# Finished Make data base on Thu Apr 14 04:45:54 2022
 
  
