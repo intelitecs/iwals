@@ -1,9 +1,5 @@
 CONFIG_PATH=${HOME}/.iwals
 CA_CONFIG_PATH=internal/auth/ca
-<<<<<<< HEAD
-
-=======
->>>>>>> security
 
 .PHONY: init
 init:
@@ -33,11 +29,7 @@ gencert:
 
 
 $(CONFIG_PATH)/model.conf:
-<<<<<<< HEAD
-	cp  internal/security/authorization/model.conf $(CONFIG_PATH)/model.conf
-=======
 	cp  internal/auth/model.com $(CONFIG_PATH)/model.conf
->>>>>>> security
 
 $(CONFIG_PATH)/policy.csv:
 	cp internal/auth/policy.csv $(CONFIG_PATH)/policy.csv
