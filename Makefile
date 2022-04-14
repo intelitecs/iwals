@@ -1,5 +1,5 @@
 CONFIG_PATH=${HOME}/.iwals
-CA_CONFIG_PATH=internal/security/ca
+CA_CONFIG_PATH=internal/auth/ca
 
 
 .PHONY: init

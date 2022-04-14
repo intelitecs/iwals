@@ -30,8 +30,8 @@ func TestLog(t *testing.T) {
 			c.Segment.MaxStoreBytes = 32
 			log, err := lg.NewLog(dir, c)
 			require.NoError(t, err)
-			err = log.NewSegment(uint64(0))
-			require.NoError(t, err)
+			//err = log.NewSegment(uint64(0))
+			//require.NoError(t, err)
 			fn(t, log)
 		})
 	}

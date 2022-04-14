@@ -14,7 +14,7 @@ import (
 
 	"iwals/internal/config"
 
-	"iwals/internal/security/authorization"
+	auth "iwals/internal/auth"
 
 	"flag"
 
@@ -28,7 +28,7 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-var debug = flag.Bool("debug", true, "Enable observability for debugging.")
+var debug = flag.Bool("debug", false, "Enable observability for debugging.")
 
 func TestMain(m *testing.M) {
 	flag.Parse()
@@ -118,11 +118,8 @@ func setupTest(t *testing.T, fn func(*server.Config)) (
 	log, err := lg.NewLog(dir, lg.Config{})
 	require.NoError(t, err)
 
-	err = log.NewSegment(uint64(0))
-	require.NoError(t, err)
-
 	// authorization
-	authorizer := authorization.NewAuthorizer(config.ACLModelFile, config.ACLPolicyFile)
+	authorizer := auth.NewAuthorizer(config.ACLModelFile, config.ACLPolicyFile)
 
 	var telemetryExporter *exporter.LogExporter
 	if *debug {

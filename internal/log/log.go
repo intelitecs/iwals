@@ -12,6 +12,14 @@ import (
 	"sync"
 )
 
+type Config struct {
+	Segment struct {
+		MaxStoreBytes uint64
+		MaxIndexBytes uint64
+		InitialOffset uint64
+	}
+}
+
 type Log struct {
 	mu  sync.RWMutex
 	Dir string
@@ -49,29 +57,31 @@ func (l *Log) setup() error {
 		off, _ := strconv.ParseUint(offStr, 10, 0)
 		baseOffsets = append(baseOffsets, off)
 	}
-	sort.Slice(baseOffsets, func(i, j int) bool {
-		return baseOffsets[i] < baseOffsets[j]
-	})
-	for i := 0; i < len(baseOffsets); i++ {
-		if err = l.NewSegment(baseOffsets[i]); err != nil {
+
+	if baseOffsets == nil || len(baseOffsets) == 0 {
+		if err := l.NewSegment(l.Config.Segment.InitialOffset); err != nil {
 			return err
 		}
-		i++
-		if l.Segments == nil {
-			if err = l.NewSegment(
-				l.Config.Segment.InitialOffset,
-			); err != nil {
+
+	} else {
+		sort.Slice(baseOffsets, func(i, j int) bool {
+			return baseOffsets[i] < baseOffsets[j]
+		})
+
+		for i := 0; i < len(baseOffsets); i++ {
+			if err = l.NewSegment(baseOffsets[i]); err != nil {
 				return err
 			}
 		}
-
 	}
+
 	return nil
 }
 
 func (l *Log) Append(record *api.Record) (uint64, error) {
 	l.mu.Lock()
 	defer l.mu.Unlock()
+
 	off, err := l.ActiveSegment.Append(record)
 	if err != nil {
 		return 0, err
