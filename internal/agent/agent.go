@@ -141,18 +141,6 @@ func (a *Agent) setupServer() error {
 
 	grpcLn := a.mux.Match(cmux.Any())
 
-	/*
-		rpcAddr, err := a.RPCAddr()
-		if err != nil {
-			return err
-		}
-
-		ln, err := net.Listen("tcp", rpcAddr)
-		if err != nil {
-			return err
-		}
-	*/
-
 	go func() {
 		if err := a.server.Serve(grpcLn); err != nil {
 			_ = a.Shutdown()
