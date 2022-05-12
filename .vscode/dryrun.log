@@ -1,5 +1,5 @@
 make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/home/imhotep/go/src/github.com/intelitecs/iwals'
-mkdir -p /home/imhotep/.iwals
-make: Leaving directory '/home/imhotep/go/src/github.com/intelitecs/iwals'
+make: Entering directory `/Users/jarodezago/Documents/dev/go/src/github.com/intelitecs/iwals'
+mkdir -p /Users/jarodezago/.iwals
+make: Leaving directory `/Users/jarodezago/Documents/dev/go/src/github.com/intelitecs/iwals'
  

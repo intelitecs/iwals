@@ -85,7 +85,12 @@ func (a *Agent) setupLogger() error {
 }
 
 func (a *Agent) setupMux() error {
-	rpcAddr := fmt.Sprintf(":%d", a.Config.RPCPort)
+	addr, err := net.ResolveTCPAddr("tcp", a.Config.BindAddr)
+	if err != nil {
+		return err
+	}
+
+	rpcAddr := fmt.Sprintf("%s:%d", addr.IP.String(), a.Config.RPCPort)
 	ln, err := net.Listen("tcp", rpcAddr)
 	if err != nil {
 		return err
@@ -95,6 +100,7 @@ func (a *Agent) setupMux() error {
 }
 
 func (a *Agent) setupLog() error {
+	var err error
 	raftLn := a.mux.Match(func(reader io.Reader) bool {
 		b := make([]byte, 1)
 		if _, err := reader.Read(b); err != nil {
@@ -105,10 +111,14 @@ func (a *Agent) setupLog() error {
 
 	logConfig := l.Config{}
 	logConfig.Raft.StreamLayer = l.NewStreamLayer(raftLn, a.Config.ServerTLSConfig, a.Config.PeerTLSConfig)
+	rpcAddr, err := a.Config.RPCAddr()
+	if err != nil {
+		return err
+	}
+	logConfig.Raft.BindAddr = rpcAddr
 	logConfig.Raft.LocalID = raft.ServerID(a.Config.NodeName)
 	logConfig.Raft.Bootstrap = a.Config.Bootstrap
 
-	var err error
 	a.log, err = l.NewDistributedLog(a.Config.DataDir, logConfig)
 	if err != nil {
 		return err
@@ -125,8 +135,9 @@ func (a *Agent) setupServer() error {
 		a.Config.ACLPolicyFile,
 	)
 	serverConfig := &server.Config{
-		CommitLog:  a.log,
-		Authorizer: authorizer,
+		CommitLog:   a.log,
+		Authorizer:  authorizer,
+		GetServerer: a.log,
 	}
 	var opts []grpc.ServerOption
 	if a.Config.ServerTLSConfig != nil {

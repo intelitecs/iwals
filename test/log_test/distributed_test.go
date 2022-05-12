@@ -18,6 +18,7 @@ import (
 
 func TestMultipleNodes(t *testing.T) {
 	var logs []*log.DistributedLog
+
 	nodeCount := 3
 	ports := dynaport.Get(nodeCount)
 
@@ -37,6 +38,7 @@ func TestMultipleNodes(t *testing.T) {
 		config.Raft.ElectionTimeout = 50 * time.Millisecond
 		config.Raft.LeaderLeaseTimeout = 50 * time.Millisecond
 		config.Raft.CommitTimeout = 5 * time.Millisecond
+		config.Raft.BindAddr = ln.Addr().String()
 		if i == 0 {
 			config.Raft.Bootstrap = true
 		}
@@ -54,6 +56,14 @@ func TestMultipleNodes(t *testing.T) {
 		}
 		logs = append(logs, l)
 	}
+
+	servers, err := logs[0].GetServers()
+	require.NoError(t, err)
+	require.Equal(t, len(servers), 3)
+	require.True(t, servers[0].IsLeader)
+	require.False(t, servers[1].IsLeader)
+	require.False(t, servers[2].IsLeader)
+	//err = logs[0].Leave("1")
 
 	records := []*api.Record{
 		{Value: []byte("first")},
@@ -79,10 +89,17 @@ func TestMultipleNodes(t *testing.T) {
 		}, 500*time.Millisecond, 40*time.Millisecond)
 	}
 
-	err := logs[0].Leave("1")
+	err = logs[0].Leave("1")
 	require.NoError(t, err)
 
 	time.Sleep(50 * time.Millisecond)
+
+	servers, err = logs[0].GetServers()
+	require.NoError(t, err)
+	require.Equal(t, 2, len(servers))
+
+	require.True(t, servers[0].IsLeader)
+	require.False(t, servers[1].IsLeader)
 
 	off, err := logs[0].Append(&api.Record{
 		Value: []byte("third"),

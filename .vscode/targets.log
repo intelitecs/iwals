@@ -1,332 +1,218 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
 
-# GNU Make 4.2.1
-# Built for x86_64-pc-linux-gnu
-# Copyright (C) 1988-2016 Free Software Foundation, Inc.
-# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-# This is free software: you are free to change and redistribute it.
-# There is NO WARRANTY, to the extent permitted by law.
+# This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Thu Apr 14 05:30:25 2022
+# Make data base, printed on Thu May 12 18:08:26 2022
 
 # Variables
 
-# 'override' directive
-GNUMAKEFLAGS := 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
 # environment
-DESKTOP_SESSION = ubuntu
-# default
-.SHELLFLAGS := -c
+PROVIDE_FULLSTACK_ACTION = true
 # environment
-ORACLE_BASE = /u01/app/oracle
-# environment
-XDG_SESSION_CLASS = user
-# environment
-XDG_SESSION_TYPE = x11
+LANG = C
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-GRADLE_HOME = /home/imhotep/.sdkman/candidates/gradle/current
+GRADLE_HOME = /Users/jarodezago/.sdkman/candidates/gradle/current
 # environment
-CPPFLAGS = -I/usr/local/gtk/include
+CPPFLAGS = -I/usr/local/opt/protobuf@3.6/include
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
-# environment
-XAUTHORITY = /run/user/1000/gdm/Xauthority
-# environment
-GDMSESSION = ubuntu
-# environment
-XMODIFIERS = @im=ibus
-# makefile
-CURDIR := /home/imhotep/go/src/github.com/intelitecs/iwals
-# makefile
-SHELL = /bin/sh
-# makefile (from 'Makefile', line 1)
-CONFIG_PATH = ${HOME}/.iwals
-# environment
-VTE_VERSION = 6003
-# environment
-VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
-# environment
-JOURNAL_STREAM = 9:71968
-# environment
-XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
-# environment
-MAVEN_HOME = /home/imhotep/.sdkman/candidates/maven/current
-# makefile (from 'Makefile', line 1)
-MAKEFILE_LIST :=  Makefile
-# environment
-JAVA_HOME = /home/imhotep/.sdkman/candidates/java/current
 # automatic
 @F = $(notdir $@)
+# makefile
+CURDIR := /Users/jarodezago/Documents/dev/go/src/github.com/intelitecs/iwals
+# makefile
+SHELL = /bin/sh
 # environment
-IM_CONFIG_PHASE = 1
+VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{"*":"fr"},"_languagePackId":"f62d0d328ea2a469bad3c39b06263023.fr","_translationsConfigFile":"/Users/jarodezago/Library/Application Support/Code/clp/f62d0d328ea2a469bad3c39b06263023.fr/tcf.json","_cacheRoot":"/Users/jarodezago/Library/Application Support/Code/clp/f62d0d328ea2a469bad3c39b06263023.fr","_resolvedLanguagePackCoreLocation":"/Users/jarodezago/Library/Application Support/Code/clp/f62d0d328ea2a469bad3c39b06263023.fr/57fd6d0195bb9b9d1b49f6da5db789060795de47","_corruptedFile":"/Users/jarodezago/Library/Application Support/Code/clp/f62d0d328ea2a469bad3c39b06263023.fr/corrupted.info","_languagePackSupport":true}
 # environment
-SCALA_HOME = /home/imhotep/.sdkman/candidates/scala/current
+_ = /usr/bin/make
 # environment
-USERNAME = imhotep
+MAVEN_HOME = /Users/jarodezago/.sdkman/candidates/maven/current
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
 # environment
-MANDATORY_PATH = /usr/share/gconf/ubuntu.mandatory.path
-# environment
-XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+SCALA_HOME = /Users/jarodezago/.sdkman/candidates/scala/current
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
-# environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-_ = /usr/bin/code
-# environment
-INFOPATH = /usr/local/texlive/2019/texmf-dist/doc/info
-# environment
-MANAGERPID = 5190
-# makefile (from 'Makefile', line 2)
+__CFBundleIdentifier = com.microsoft.VSCode
+# makefile (from `Makefile', line 2)
 CA_CONFIG_PATH = internal/auth/ca
 # environment
-LESSOPEN = | /usr/bin/lesspipe %s
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/nl/9rqxvrtj10dggd2872ny7tgw0000gn/T/vscode-ipc-ac583b0c-af07-4c6f-a5e0-0136d1ca4eb7.sock
 # environment
-VSCODE_CWD = /home/imhotep/go/src/github.com/intelitecs/iwals
+VSCODE_CWD = /
 # environment
 GOPROXY = https://proxy.golang.org,direct
 # environment
-GSETTINGS_SCHEMA_DIR = /home/imhotep/anaconda3/share/glib-2.0/schemas
-# default
-MAKE_HOST := x86_64-pc-linux-gnu
+PATH = /Users/jarodezago/google-cloud-sdk/bin:/Users/jarodezago/Documents/dev/go/bin:/usr/local/opt/protobuf@3.6/bin:/Users/jarodezago/.sdkman/candidates/scala/current/bin:/Users/jarodezago/.sdkman/candidates/sbt/current/bin:/Users/jarodezago/.sdkman/candidates/maven/current/bin:/Users/jarodezago/.sdkman/candidates/kotlin/current/bin:/Users/jarodezago/.sdkman/candidates/groovy/current/bin:/Users/jarodezago/.sdkman/candidates/gradle/current/bin:/Users/jarodezago/.local/bin:/Users/jarodezago/.cabal/bin:/Users/jarodezago/.ghcup/bin:/Users/jarodezago/anaconda3/bin:/Users/jarodezago/anaconda3/condabin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/share/dotnet:/Library/Apple/usr/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/Users/jarodezago/.cargo/bin
 # environment
-PATH = /usr/local/go/bin:/usr/local/texlive/2019/bin/x86_64-linux:/home/imhotep/.cargo/bin:/u01/app/oracle/product/11.2.0/xe/bin:/home/imhotep/.yarn/bin:/home/imhotep/.config/yarn/global/node_modules/.bin:/home/imhotep/.sdkman/candidates/java/current/bin:/home/imhotep/anaconda3/bin:/home/imhotep/anaconda3/condabin:/usr/local/protobuf/bin:/home/imhotep/.cargo/bin:/home/imhotep/.perl6/bin:/opt/rakudo-pkg/bin:/opt/rakudo-pkg/share/perl6/site/bin:/home/imhotep/.sdkman/candidates/springboot/current/bin:/home/imhotep/.sdkman/candidates/scala/current/bin:/home/imhotep/.sdkman/candidates/sbt/current/bin:/home/imhotep/.sdkman/candidates/maven/current/bin:/home/imhotep/.sdkman/candidates/kotlin/current/bin:/home/imhotep/.sdkman/candidates/groovy/current/bin:/home/imhotep/.sdkman/candidates/gradle/current/bin:/home/imhotep/.sdkman/candidates/ant/current/bin:/home/imhotep/.local/bin:/home/imhotep/anaconda3/bin:/home/imhotep/anaconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/home/imhotep/.ghcup/bin:/usr/lib/dart/bin:/usr/lib/dart/bin:/home/imhotep/go/bin
+GOLANG_EXECUTABLE = go
 # environment
-FLUTTER_PATH = /home/imhotep/FluterSDK/flutter/bin
-# environment
-NODEJSPATH = /usr/local/node-v12.14.1-linux-x64
-# environment
-GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
-# environment
-SESSION_MANAGER = local/imhotep-Precision-7730:@/tmp/.ICE-unix/5435,unix/imhotep-Precision-7730:/tmp/.ICE-unix/5435
-# environment
-XDG_RUNTIME_DIR = /run/user/1000
-# environment
-SDKMAN_DIR = /home/imhotep/.sdkman
-# environment
-PROTOBUF = /usr/local/protobuf
-# environment
-TEXPATH = /usr/local/texlive/2019/bin/x86_64-linux
+THREE_SCALE_USER_TOKEN = 207c527cfc2a6b8dcf4fa43ad7a976da
 # environment
 SDKMAN_CANDIDATES_API = https://api.sdkman.io/2
 # environment
-GOPATH = /home/imhotep/go
+GOPATH = /Users/jarodezago/Documents/dev/go
+# makefile (from `Makefile', line 1)
+CONFIG_PATH = ${HOME}/.iwals
 # environment
-CONDA_PREFIX = /home/imhotep/anaconda3
-# environment
-XDG_MENU_PREFIX = gnome-
-# environment
-SDKMAN_PLATFORM = Linux64
+SDKMAN_PLATFORM = DarwinX64
 # environment
 VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 1e5d6abad10340a09a34d951a59d18a1
-# environment
-LDFLAGS = -L/usr/local/gtk/lib
+LDFLAGS = -L/usr/loccal/opt/protobuf@3.6/lib
 # default
-.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+# makefile (from `Makefile', line 61)
+TAG = 0.0.1
 # environment
-LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+UUID = 9a76ec19-25d2-4642-9a91-f38449074d4a
 # environment
-BOOST_BUILD_PATH = /opt/boost_1_74_0
-# environment
-XDG_SESSION_DESKTOP = ubuntu
-# environment
-SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.pOzAMBB3mA/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
-DISPLAY = :0
-# environment
-CONDA_EXE = /home/imhotep/anaconda3/bin/conda
+CONDA_EXE = /Users/jarodezago/anaconda3/bin/conda
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-PWD = /home/imhotep/go/src/github.com/intelitecs/iwals
+SDKMAN_DIR = /Users/jarodezago/.sdkman
 # environment
-GROOVY_HOME = /home/imhotep/.sdkman/candidates/groovy/current
+PWD = /Users/jarodezago/Documents/dev/go/src/github.com/intelitecs/iwals
+# environment
+GROOVY_HOME = /Users/jarodezago/.sdkman/candidates/groovy/current
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+KOTLIN_HOME = /Users/jarodezago/.sdkman/candidates/kotlin/current
+# environment
+GOMODCACHE = /Users/jarodezago/Documents/dev/go/pkg/mod
+# environment
+HOME = /Users/jarodezago
 # default
-.LOADED := 
+MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-ANT_HOME = /home/imhotep/.sdkman/candidates/ant/current
+VSCODE_CODE_CACHE_PATH = /Users/jarodezago/Library/Application Support/Code/CachedData/57fd6d0195bb9b9d1b49f6da5db789060795de47
 # environment
-SSH_AGENT_PID = 5390
-# environment
-PKG_CONFIG_PATH = /usr/local/gtk/lib/pkgconfig
-# environment
-ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
-# environment
-KOTLIN_HOME = /home/imhotep/.sdkman/candidates/kotlin/current
-# environment
-GTK_MODULES = gail:atk-bridge
-# environment
-MANPATH = /usr/local/texlive/2019/texmf-dist/doc/man
-# environment
-GOMODCACHE = /home/imhotep/go/pkg/mod
-# environment
-HOME = /home/imhotep
-# environment
-LD_LIBRARY_PATH = /u01/app/oracle/product/11.2.0/xe/lib:/usr/local/gtk/lib
-# environment
-LESSCLOSE = /usr/bin/lesspipe %s %s
-# environment
-J2REDIR = /home/imhotep/.sdkman/candidates/java/current
-# environment
-VSCODE_CLI = 1
-# environment
-VSCODE_CODE_CACHE_PATH = /home/imhotep/.config/Code/CachedData/dfd34e8260c270da74b5c2d86d61aee4b6d56977
-# environment
-LOGNAME = imhotep
+LOGNAME = jarodezago
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
-MATHEMATICA_HOME = /usr/local/Wolfram/Mathematica/12.3
-# environment
 CONDA_PROMPT_MODIFIER = (base) 
 # environment
-J2SDKDIR = /home/imhotep/.sdkman/candidates/java
+NVM_CD_FLAGS = -q
 # environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
-# environment
-M2_HOME = /home/imhotep/.sdkman/candidates/maven/current
+TELEMETRY_ID = 2dbc4671-73af-4292-90f9-bc24af410437
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
-# environment
-GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
-MAKELEVEL := 0
-# environment
 CONDA_DEFAULT_ENV = base
 # environment
-SDKMAN_VERSION = 5.9.0+555
+XPC_FLAGS = 0x0
 # environment
-COLORTERM = truecolor
-# environment
-NLS_LANG = AMERICAN_AMERICA.AL32UTF8
+SDKMAN_VERSION = 5.11.0+644
+# default
+MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-QT_IM_MODULE = ibus
-# environment
 SHLVL = 1
 # environment
-ORACLE_HOME = /u01/app/oracle/product/11.2.0/xe
+SBT_HOME = /Users/jarodezago/.sdkman/candidates/sbt/current
 # environment
-SBT_HOME = /home/imhotep/.sdkman/candidates/sbt/current
-# environment
-GNOME_SHELL_SESSION_MODE = ubuntu
-# environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-7fb36673-9532-432c-80f8-4d6811e1ff52.sock
+JAVA_HOME = /Library/Java/JavaVirtualMachines/jdk-15.0.2.jdk/Contents/Home
 # default
-MAKE_VERSION := 4.2.1
+MAKE_VERSION := 3.81
 # environment
-USER = imhotep
+USER = jarodezago
 # makefile
 .DEFAULT_GOAL := init
-# environment
-XDG_CURRENT_DESKTOP = Unity
-# environment
-GOROOT = /usr/local/go
-# default
-MAKE = $(MAKE_COMMAND)
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
 CONDA_SHLVL = 1
 # default
-MAKE_COMMAND := make
+MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
 # environment
-OLDPWD = /home/imhotep
+UTM_SOURCE = vscode
 # default
 .VARIABLES := 
+# environment
+TMPDIR = /var/folders/nl/9rqxvrtj10dggd2872ny7tgw0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-133b4eef-1.66.2-main.sock
+VSCODE_IPC_HOOK = /Users/jarodezago/Library/Application Support/Code/1.67.0-main.sock
 # makefile
-MAKEFLAGS = pqrR
+MAKEFLAGS = Rrqp
 # environment
-MFLAGS = -pqrR
+MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
+# environment
+NVM_DIR = /Users/jarodezago/.nvm
+# environment
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.45786088.45786094
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
-GDK_BACKEND = x11
+RECOMMENDER_API_URL = https://gw.api.openshift.io//api/v2
 # automatic
 +F = $(notdir $+)
 # environment
-GSETTINGS_SCHEMA_DIR_CONDA_BACKUP = 
+__CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x1
 # environment
-CARGO_PATH = /home/imhotep/.cargo
-# environment
-QT_ACCESSIBILITY = 1
- 
-# environment
-DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
-# environment
-ORACLE_SID = XE
+COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # automatic
 <F = $(notdir $<)
 # environment
-SDKMAN_CANDIDATES_DIR = /home/imhotep/.sdkman/candidates
+SDKMAN_CANDIDATES_DIR = /Users/jarodezago/.sdkman/candidates
 # environment
 LC_ALL = C
 # environment
-CONDA_PYTHON_EXE = /home/imhotep/anaconda3/bin/python
-# environment
-SPRINGBOOT_HOME = /home/imhotep/.sdkman/candidates/springboot/current
-# environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
-# environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/ba89b592_144d_4d10_9e31_74d55d82bc77
+CONDA_PYTHON_EXE = /Users/jarodezago/anaconda3/bin/python
 # automatic
 ^F = $(notdir $^)
-# environment
-GNOME_TERMINAL_SERVICE = :1.84
 # default
 SUFFIXES := 
 # environment
 _CE_M = 
-# environment
-CHROME_DESKTOP = code-url-handler.desktop
-# environment
-WINDOWPATH = 2
 # default
-.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+.INCLUDE_DIRS = /usr/local/include
 # environment
-GJS_DEBUG_OUTPUT = stderr
+MAKELEVEL := 0
 # environment
-DERBY_HOME = /home/imhotep/.sdkman/candidates/java/current/db
-# default
-.RECIPEPREFIX := 
+CONDA_PREFIX = /Users/jarodezago/anaconda3
 # environment
-LANG = C
-# environment
-TERM = xterm-256color
-# environment
-VSCODE_PID = 787169
+VSCODE_PID = 73246
 # environment
 _CE_CONDA = 
+# environment
+NVM_RC_VERSION = 
 # variable set hash-table stats:
-# Load=156/1024=15%, Rehash=0, Collisions=25/189=13%
+# Load=100/1024=10%, Rehash=0, Collisions=6/133=5%
 
 # Pattern-specific Variable Values
 
@@ -334,9 +220,9 @@ _CE_CONDA =
 
 # Directories
 
-# . (device 66306, inode 9363548): 14 files, no impossibilities.
+# . (device 16777225, inode 45158382): 18 files, no impossibilities.
 
-# 14 files, no impossibilities in 1 directories.
+# 18 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -348,22 +234,42 @@ protobuf:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 41):
+#  commands to execute (from `Makefile', line 41):
 	protoc --go_out=:api/v1 \
-		   --go-grpc_out=require_unimplemented_servers=false:api/v1 \
-	       --go_opt=paths=source_relative \
-		   --go-grpc_opt=paths=source_relative \
-		   --proto_path=:api/v1/protos \
-		   api/v1/protos/*.proto
+	--go-grpc_out=require_unimplemented_servers=false:api/v1 \
+	--go_opt=paths=source_relative \
+	--go-grpc_opt=paths=source_relative \
+	--proto_path=:api/v1/protos \
+	api/v1/protos/*.proto
+	
 
 # Not a target:
 all:
-#  Command line target.
+#  Command-line target.
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has not been updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-.PHONY: init gencert test
+.PHONY: init gencert generate test
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/Users/jarodezago/.iwals/model.conf:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+ 
+make: *** No rule to make target `all'.  Stop.
+
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 32):
+	cp  internal/auth/model.conf $(CONFIG_PATH)/model.conf
+	
+
+# Not a target:
+.SUFFIXES:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -371,48 +277,53 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-14 05:23:14.963822193
+#  Last modified 2022-04-28 11:26:49
 #  File has been updated.
 #  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-test: /home/imhotep/.iwals/model.conf /home/imhotep/.iwals/policy.csv
+test: /Users/jarodezago/.iwals/model.conf /Users/jarodezago/.iwals/policy.csv
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 52):
+#  commands to execute (from `Makefile', line 59):
 	go test -v -race ./test/...
 	
-
-/home/imhotep/.iwals/policy.csv:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 35):
-	cp internal/auth/policy.csv $(CONFIG_PATH)/policy.csv
 
 gencert:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 10):
+#  commands to execute (from `Makefile', line 10):
 	cfssl gencert -initca ${CA_CONFIG_PATH}/ca-csr.json | cfssljson -bare ca
 	cfssl gencert -ca=ca.pem \
-	              -ca-key=ca-key.pem \
-				  -config=${CA_CONFIG_PATH}/ca-config.json \
-				  -profile=server ${CA_CONFIG_PATH}/server-csr.json | cfssljson -bare server
+	-ca-key=ca-key.pem \
+	-config=${CA_CONFIG_PATH}/ca-config.json \
+	-profile=server ${CA_CONFIG_PATH}/server-csr.json | cfssljson -bare server
 	cfssl gencert -ca=ca.pem \
-	              -ca-key=ca-key.pem \
-				  -config=${CA_CONFIG_PATH}/ca-config.json \
-				  -cn="root" \
-				  -profile=client ${CA_CONFIG_PATH}/client-csr.json | cfssljson -bare root-client
+	-ca-key=ca-key.pem \
+	-config=${CA_CONFIG_PATH}/ca-config.json \
+	-cn="root" \
+	-profile=client ${CA_CONFIG_PATH}/client-csr.json | cfssljson -bare root-client
 	cfssl gencert -ca=ca.pem \
-	              -ca-key=ca-key.pem \
-				  -config=${CA_CONFIG_PATH}/ca-config.json \
-				  -cn="nobody" \
-				  -profile=client ${CA_CONFIG_PATH}/client-csr.json | cfssljson -bare  nobody-client		  
+	-ca-key=ca-key.pem \
+	-config=${CA_CONFIG_PATH}/ca-config.json \
+	-cn="nobody" \
+	-profile=client ${CA_CONFIG_PATH}/client-csr.json | cfssljson -bare  nobody-client		  
 	mv *.pem *.csr ${CONFIG_PATH}
+	
+
+generate: gencert protobuf
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 52):
+	echo "Generatiion done!"
+	
 
 # Not a target:
 .DEFAULT:
@@ -420,42 +331,52 @@ gencert:
 #  Modification time never checked.
 #  File has not been updated.
 
+build-docker:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 64):
+	docker build -t iwals:$(TAG) .
+	
+
 init:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 6):
+#  commands to execute (from `Makefile', line 6):
 	mkdir -p ${CONFIG_PATH}
-
-/home/imhotep/.iwals/model.conf:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 32):
-	cp  internal/auth/model.com $(CONFIG_PATH)/model.conf
+	
 
 main:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 38):
+#  commands to execute (from `Makefile', line 38):
 	go run cmd/main.go
+	
+
+/Users/jarodezago/.iwals/policy.csv:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 35):
+	cp internal/auth/policy.csv $(CONFIG_PATH)/policy.csv
+	
 
 # files hash-table stats:
-# Load=12/1024=1%, Rehash=0, Collisions=0/32=0%
+# Load=14/1024=1%, Rehash=0, Collisions=0/37=0%
 # VPATH Search Paths
 
-# No 'vpath' search paths.
+# No `vpath' search paths.
 
-# No general ('VPATH' variable) search path.
+# No general (`VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 26 / storage = 245 B / avg = 9 B
-# current buf: size = 8162 B / used = 245 B / count = 26 / avg = 9 B
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# strcache performance: lookups = 48 / hit rate = 45%
-# hash-table stats:
-# Load=26/8192=0%, Rehash=0, Collisions=1/48=2%
-# Finished Make data base on Thu Apr 14 05:30:25 2022
+# Finished Make data base on Thu May 12 18:08:26 2022
 
  

@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multi-container-pod
+spec:
+  containers:
+   # mysql container configuration
+    - name: mysql-ambassador-container
+      image: mysql:latest
+      resources:
+        limits:
+          cpu: "1"
+          memory: 1024Mi
+        requests:
+          cpu: "1"
+          memory: 1024Mi
+      ports:
+        - containerPort: 3306
+      
+      env:
+      - name: DB_HOST
+        value: mysql.xxx.us-east-1.rds.amazonaws.com
+   # end of mysql container configuration 
+
+
+   # start of nginx container configuration 
+    - name: nginx-container
+      image: nginx:latest
+      resources:
+        limits:
+          cpu: "1"
+          memory: 1024Mi
+        requests:
+          cpu: "1"
+          memory: 1024Mi
+      volumeMounts:
+      - mountPath: /var/config
+        name: my-host-path-volume
+
+   # start of busybox container configuration
+    - name: busybox-container
+      image: busybox:latest
+      command: ["/bin/sh"]
+      args: ["-c", "while true; do sleep 30; done;"]
+      resources:
+        limits:
+          cpu: "1"
+          memory: 1024Mi
+        requests:
+          cpu: "1"
+          memory: 1024Mi
+      volumeMounts:
+      - mountPath: /var/config
+        name: my-host-path-volume
+  # end of busybox container configuration
+  # start of volumes Configuration
+  volumes:
+  - name:  my-host-path-volume
+    hostPath:
+      path: /tmp
+    #emptyDir: {}
+      
+
+     
+    
+  
+    
+    

@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "iwals.fullname" .}}
+  namespace: {{ .Release.Namespace }}
+  labels: {{ include "iwals.labels" . | nindent 4}}
+spec:
+  selector:
+    matchLabels: {{ include "iwals.selectorLabels" . | nindent 6 }}
+  serviceName: {{ include "iwals.fullname" .}}
+  replicas: {{ .Values.Replicas }}
+  template:
+    metadata:
+      name: {{ include "iwals.fullname" .}}
+      labels: {{ include "iwals.labels" . | nindent 8 }}
+    spec:
+      initContainers:
+        - name: {{ include "iwals.fullname" .}}
+          image: busybox
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -c
+            - |-
+              ID=$(echo $HOSTNAME | rev | cut -d- -f1 | rev)
+              cat > /var/run/iwals/config.yaml <<EOD
+              data-dir: /var/run/iwals/data
+              rpc-port: {{.Values.rpcPort}}
+              bind-addr: $HOSTNAME.iwals.{{.Release.Namespace}}.\svc.cluster.local:{{.Values.serfPort}}
+              bootstrap: $([$ID = 0] && echo true || echo false)
+              $([$ID != 0] && echo 'start-join-addrs: "iwals-0.iwals.{{.Release.Namespace}}.svc.cluster.local:{{.Values.serfPort}}"')
+              EOD
+          volumeMounts:
+          - name: datadir
+            mountPath: /var/run/iwals
+      containers:
+      - name: {{ include "iwals.fullname" .}}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        ports:
+        - containerPort: {{ .Values.rpcPort }}
+          name: rpc
+        - containerPort: {{ .Values.serfPort }}
+          name: serf 
+        args:
+          - --config-file=/var/run/iwals/config.yaml
+        readinessProbe:
+          exec:
+            command: ["/bin/grpc_health_probe", "-addr=:{{ .Values.rpcPort }}"]
+          initialDelaySeconds: 10
+        livenessProbe: 
+          exec:
+            command: ["/bin/grpc_health_probe", "-addr=:{{ .Values.rpcPort }}"]
+          initialDelaySeconds: 10
+        volumeMounts:
+        - name: datadir
+          mountPath: /var/run/iwals   
+        
+  volumeClaimTemplates:
+  - metadata:
+      name: datadir
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: {{ .Values.storage }}

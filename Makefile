@@ -29,7 +29,7 @@ gencert:
 
 
 $(CONFIG_PATH)/model.conf:
-	cp  internal/auth/model.com $(CONFIG_PATH)/model.conf
+	cp  internal/auth/model.conf $(CONFIG_PATH)/model.conf
 
 $(CONFIG_PATH)/policy.csv:
 	cp internal/auth/policy.csv $(CONFIG_PATH)/policy.csv
@@ -46,8 +46,19 @@ protobuf:
 		   api/v1/protos/*.proto
 
 
+.PHONY: generate
+
+generate: gencert protobuf
+	echo "Generatiion done!"
+	
+	
+
 .PHONY: test
 
 test: $(CONFIG_PATH)/model.conf $(CONFIG_PATH)/policy.csv
 	go test -v -race ./test/...
 	
+TAG ?= 0.0.1
+
+build-docker:
+	docker build -t iwals:$(TAG) .
